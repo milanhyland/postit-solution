@@ -1,0 +1,6 @@
+<div class="well span8">
+  <em>"<%= comment.body%>" </em>
+
+  <span class='quiet'>posted by </span> <%= comment.creator.username %>
+  <small> at <%= display_datetime(comment.created_at) %></small>
+</div>
