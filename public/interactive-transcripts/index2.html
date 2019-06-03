@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html class="page-jw-player page-demos page-innovation page-interactive-transcripts">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Interactive Transcripts</title>
+    <meta name="description" content="This demo showcases an interactive, searchable transcript for our HTML5 Video Webinar." />
+    <meta name="google-site-verification" content="ke-K2lvR7rSTzOGVR7pIDw0dUKhTzsCScFN753TjgXs" />
+    <meta property="og:title" content="Interactive Transcripts">
+    <meta property="og:description" content="JW Developers provides tools and resources for developers
+          using JW Player, JW Platform and the Android and iOS SDKs.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="//developer.jwplayer.com/img/sharing-icon.png">
+    <meta property="og:url" content="//developer.jwplayer.com/jw-player/demos/innovation/interactive-transcripts/">
+    <meta property="og:site_name" content="JW Developer">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@jwplayer">
+    <meta name="twitter:creator" content="@jwplayer">
+    <meta name="twitter:title" content="Interactive Transcripts">
+    <meta name="twitter:description" content="JW Developers provides tools and resources for developers
+          using JW Player, JW Platform and the Android and iOS SDKs.">
+    <meta name="twitter:image" content="//developer.jwplayer.com/img/sharing-icon.png">
+    <link rel="canonical" href="//developer.jwplayer.com" />
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/css/developer.min.css?v=ZonZSATa">
+    
+      <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MBF9PW"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-MBF9PW');</script>
+    
+    <script type="text/javascript">
+      (function() {
+        var didInit = false;
+        function initMunchkin() {
+          if(didInit === false) {
+            didInit = true;
+            Munchkin.init('743-BEQ-873');
+          }
+        }
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = '//munchkin.marketo.net/munchkin.js';
+        s.onreadystatechange = function() {
+          if (this.readyState == 'complete' || this.readyState == 'loaded') {
+            initMunchkin();
+          }
+        };
+        s.onload = initMunchkin;
+        document.getElementsByTagName('head')[0].appendChild(s);
+      })();
+      </script>
+  </head>
+  <body>
+    <div class="global-promo"><p><a href="https://www.jwplayer.com/reframe/?utm_source=developer&utm_content=stickybar" target="_blank">Attend our Free Video Engineering Conference in New York. Register Today »</a></p></div>
+    <div class="site">
+
+<!--Start Common Site Header-->
+<div class="site-header">
+  <div class="site-header-container">
+    <a class="logo" href="/">
+      <img src="//developer.jwplayer.com/img/jw-logo-mark-white.svg">
+      <img src="//developer.jwplayer.com/img/jw-logo-text-white.svg">
+      <span class="developer">Developer</span>
+    </a>
+    <a class="menu-toggle" href="#">Menu</a>
+    <ul class="menu">
+      <li><a class="link" href="https://www.jwplayer.com/careers">Careers</a></li>
+      <li><a class="link" href="https://www.jwplayer.com">Company</a></li>
+      <li><a class="link" href="https://medium.com/jw-player-engineering">Blog</a></li>
+      <li><a class="link" href="https://support.jwplayer.com">Support</a></li>
+      <li><a class="link" href="https://dashboard.jwplayer.com">Sign-In</a></li>
+      <li><a class="link" href="/search/"><img class="search-icon" src="//icons.jwplayer.com/icons/white/search.svg" width="15" /></a></li>
+      <li><a class="btn md red" href="https://www.jwplayer.com/pricing/?utm_source=developer&utm_medium=CTA&utm_campaign=Developer%20Nav%20Upgrade">Get Started</a></li>
+    </ul>
+  </div>
+</div>
+<!--End Common Site Header-->
+
+
+<div class="site-body">
+  <div class="page">
+    <head>
+    <link rel="shortcut icon" href="//developer.jwplayer.com/img/favicon.ico" type="image/x-icon" />
+
+    <link rel="stylesheet" href="../../template-css/jw-demos.css">
+    <link rel="stylesheet" href="css/build.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="../../js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<!--Start Common Site Secondary Header-->
+<div class="site-secondary-header">
+  <div class="site-secondary-header-container">
+    <div class="site-secondary-header-group">
+      <div class="site-secondary-header-dropdown">
+        <a class="site-secondary-header-dropdown-arrow" href="#"></a>
+        <a href="/jw-player/" class="site-secondary-header-dropdown-link is-selected">JW Player</a>
+        <a href="/jw-platform/" class="site-secondary-header-dropdown-link ">JW Platform</a>
+        <a href="/android-sdk/" class="site-secondary-header-dropdown-link ">Android SDK</a>
+        <a href="/ios-sdk/" class="site-secondary-header-dropdown-link ">iOS SDK</a>
+        <a href="/tools/" class="site-secondary-header-dropdown-link ">Developer Tools</a>
+        <a href="/release-notes/" class="site-secondary-header-dropdown-link ">Release Notes</a>
+      </div>
+    </div>
+    
+      <a href="/jw-player/docs/javascript-api-reference/">API Reference</a>
+      <a href="/jw-player/docs/developer-guide/">Developer Guide</a>
+      <a href="/jw-player/demos">Demos</a>
+      <a href="/release-notes/jw-player/">Release Notes</a>
+    
+    
+    
+    
+    
+    
+  </div>
+</div>
+<!--End Common Site Secondary Header-->
+
+
+<div class="demos">
+
+  <div class="demos-single-header">
+    <div class="demos-single-header-container">
+      <h1>Interactive Transcripts</h1>
+      <p>
+        This demo showcases an interactive, searchable transcript for our HTML5 Video Webinar.
+      </p>
+    </div>
+  </div>
+
+  <div class="demo-single">
+
+    <div class="demo-nav">
+      <div class="demo-back">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="61.1px" height="100px" viewBox="31.7 11.5 61.1 100" style="enable-background:new 31.7 11.5 61.1 100;" xml:space="preserve">
+          <path d="M89.6,14.7c4.3,4.3,4.3,11.3,0,15.5L58.4,61.5l31.2,31.2c4.3,4.3,4.3,11.3,0,15.5c-4.3,4.3-11.3,4.3-15.7,0l-39-39
+          c-4.3-4.3-4.3-11.3,0-15.5l39.1-39C78.3,10.4,85.3,10.4,89.6,14.7z"/>
+        </svg>
+        <a href="../../">Back to Demos</a>
+      </div>
+      <div class="demo-meta">
+        <div class="demo-license">
+          License: <strong>All</strong>
+        </div>
+        <div class="demo-version">
+          Player Version: <strong id="demo-player-version"></strong>
+        </div>
+          <div class="demo-author">
+            Author: <strong>JW Player</strong>
+              <span>| <a href="http://github.com/jwplayer">GitHub</a></span>
+          </div>
+      </div>
+      <div class="demo-source-code">
+        <a href="//github.com/jwplayer/jwdeveloper-demos/tree/master/demos/innovation/interactive-transcripts">Source Code</a>
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="97.5px" viewBox="0 0 100 97.5" enable-background="new 0 0 100 97.5" xml:space="preserve">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M50,0C22.4,0,0,22.4,0,50c0,22.1,14.3,40.8,34.2,47.4
+          	c2.5,0.5,3.4-1.1,3.4-2.4c0-1.2,0-4.3-0.1-8.5c-13.9,3-16.8-6.7-16.8-6.7c-2.3-5.8-5.6-7.3-5.6-7.3c-4.5-3.1,0.3-3,0.3-3
+          	c5,0.4,7.7,5.2,7.7,5.2c4.5,7.6,11.7,5.4,14.6,4.2c0.5-3.2,1.7-5.4,3.2-6.7c-11.1-1.3-22.8-5.6-22.8-24.7c0-5.5,1.9-9.9,5.1-13.4
+          	c-0.5-1.3-2.2-6.3,0.5-13.2c0,0,4.2-1.3,13.7,5.1c4-1.1,8.3-1.7,12.5-1.7c4.2,0,8.5,0.6,12.5,1.7c9.5-6.5,13.7-5.1,13.7-5.1
+          	c2.7,6.9,1,12,0.5,13.2c3.2,3.5,5.1,8,5.1,13.4c0,19.2-11.7,23.4-22.8,24.7c1.8,1.5,3.4,4.6,3.4,9.3c0,6.7-0.1,12.1-0.1,13.7
+          	c0,1.3,0.9,2.9,3.4,2.4C85.7,90.8,100,72.1,100,50C100,22.4,77.6,0,50,0z"/>
+        </svg>
+      </div>
+    </div>
+
+      <div class="demo-api-reference">
+        <div class="demo-api-reference-link">
+          <a href="/jw-player/docs/developer-guide/api/javascript_api_reference/">API Reference</a>
+        </div>
+        <div class="demo-api-calls-label">
+          This demo includes:
+        </div>
+        <ul class="demo-api-calls">
+            <li><code>addButton</code></li>
+            <li><code>on(&#39;time&#39;)</code></li>
+        </ul>
+      </div>
+
+    <div class="demo-container">
+
+      <div class="demo-layout-vertical">
+        <div class="demo-layout-content">
+          <!--
+* Copyright 2016 Longtail Ad Solutions Inc.
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+* express or implied. See the License for the specific language
+* governing permissions and limitations under the License.
+-->
+
+<script src="http://content.jwplatform.com/libraries/IDzF9Zmk.js"></script>
+
+<div class="player-container">
+	<div id="player"></div>
+	<div class="sidebar">
+		<div id="searchbox" class="searchbox">
+		  <span id="match" class="match">0 of 0</span>
+		  <input id="search" type="search" class="search" />
+		</div>
+		<div id="transcript" class="transcript"></div>
+	</div>
+</div>
+<div class="caption-copy">
+	<div>Closed captions are great for making video accessible to non-native speakers or when audio is not available. They are supported in all editions of JW Player and loaded using WebVTT files.</div>
+	<div>Beyond captions, WebVTT has many useful applications:</div>
+	 <ol>
+	    <li>Preview thumbnails are shown on the controlbar to assist seeking in the video.</li>
+	    <li>Chapter markers are displayed both on the controlbar and as a table of contents.</li>
+	    <li>A searchable transcript below the video allows for easy searching of keywords. Click on the transcript text to jump to a specific section in the video.</li>
+	</ol>
+</div>
+
+        </div>
+      </div>
+
+      <div class="demo-disclaimer">
+        Please Note: This player implementation is a Proof of Concept only provided to show the possibilities of the JW Player and Platform and should not be taken as an offer to create, edit or maintain custom integration or development.
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+<script type="text/javascript">
+
+var chapters = [];
+var captions = [];
+var caption = -1;
+var matches = [];
+var query = "";
+var cycle = -1;
+
+var transcript = document.getElementById('transcript');
+var search = document.getElementById('search');
+var match = document.getElementById('match');
+
+
+
+// Setup JW Player
+jwplayer("player").setup({
+    file: '//content.jwplatform.com/manifests/3p683El7.m3u8',
+    image: '//content.jwplatform.com/thumbs/3p683El7-640.jpg',
+    tracks: [
+      { file: "assets/chapters.vtt", kind: "chapters" },
+      { file: "assets/captions.vtt", kind: "captions" },
+      { file: "//content.jwplatform.com/strips/3p683El7-120.vtt", kind: "thumbnails" }
+
+    ],
+    displaytitle: false,
+    width: 640,
+    height: 360
+});
+jwplayer().addButton(
+  "assets/download.png",
+  "Download Slides",
+  function() {
+    window.location.href = "assets/state-html5-video.pdf";
+  },
+  "download"
+);
+
+
+
+
+// Load chapters / captions
+jwplayer().on('ready', function(){
+  var r = new XMLHttpRequest();
+  r.onreadystatechange = function() {
+    if (r.readyState == 4 && r.status == 200) {
+      var t = r.responseText.split("\n\n");
+      t.shift();
+      for(var i=0; i<t.length; i++) {
+        var c = parse(t[i]);
+        chapters.push(c);
+      }
+      loadCaptions();
+    }
+  };
+  r.open('GET','assets/chapters.vtt',true);
+  r.send();
+});
+function loadCaptions(){
+  var r = new XMLHttpRequest();
+  r.onreadystatechange = function() {
+    if (r.readyState == 4 && r.status == 200) {
+      var t = r.responseText.split("\n\n");
+      t.shift();
+      var h = "<p>";
+      var s = 0;
+      for(var i=0; i<t.length; i++) {
+        var c = parse(t[i]);
+        if(s < chapters.length && c.begin > chapters[s].begin) {
+          h += "</p><h4>"+chapters[s].text+"</h4><p>";
+          s++;
+        }
+        h += "<span id='caption"+i+"'>"+c.text+"</span>";
+        captions.push(c);
+      }
+      transcript.innerHTML = h + "</p>";
+    }
+  };
+  r.open('GET','assets/captions.vtt',true);
+  r.send();
+};
+function parse(d) {
+    var a = d.split("\n");
+    var i = a[1].indexOf(' --> ');
+    var t = a[2];
+    if (a[3]) {  t += " " + a[3]; }
+    t = t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    return {
+      begin: seconds(a[1].substr(0,i)),
+      btext: a[1].substr(3,i-7),
+      end: seconds(a[1].substr(i+5)),
+      text: t
+    }
+};
+function seconds(s) {
+  var a = s.split(':');
+  var r = Number(a[a.length-1]) + Number(a[a.length-2]) * 60;
+  if(a.length > 2) { r+= Number(a[a.length-3]) * 3600; }
+  return r;
+};
+
+
+
+// Highlight current caption and chapter
+jwplayer().on('time', function(e){
+  var p = e.position;
+  for(var j=0; j<captions.length; j++) {
+    if(captions[j].begin < p && captions[j].end > p) {
+      if(j != caption) {
+        var c = document.getElementById('caption'+j);
+        if(caption > -1) {
+          document.getElementById('caption'+caption).className = "";
+        }
+        c.className = "current";
+        if(query == "") {
+          transcript.scrollTop = c.offsetTop - transcript.offsetTop - 40;
+        }
+        caption = j;
+      }
+      break; 
+    }
+  }
+});
+
+
+
+// Hook up interactivity
+transcript.addEventListener("click",function(e) {
+  if(e.target.id.indexOf("caption") == 0) { 
+    var i = Number(e.target.id.replace("caption",""));
+    jwplayer().seek(captions[i].begin);
+  }
+});
+search.addEventListener('focus',function(e){
+  setTimeout(function(){search.select();},100);
+});
+search.addEventListener('keydown',function(e) {
+  if(e.keyCode == 27) {
+    resetSearch();
+  } else if (e.keyCode == 13) {
+    var q = this.value.toLowerCase();
+    if(q.length > 0) {
+      if (q == query) {
+        if(cycle >= matches.length - 1) {
+          cycleSearch(0);
+        } else { 
+          cycleSearch(cycle + 1);
+        }
+      } else {
+        resetSearch();
+        searchTranscript(q);
+      }
+    } else {
+      resetSearch();
+    }
+  }
+});
+
+
+
+// Execute search
+function searchTranscript(q) {
+  matches = [];
+  query = q;
+  for(var i=0; i<captions.length; i++) {
+    var m = captions[i].text.toLowerCase().indexOf(q);
+    if( m > -1) {
+      document.getElementById('caption'+i).innerHTML = 
+        captions[i].text.substr(0,m) + "<em>" + 
+        captions[i].text.substr(m,q.length) + "</em>" + 
+        captions[i].text.substr(m+q.length);
+      matches.push(i);
+    }
+  }
+  if(matches.length) {
+    cycleSearch(0);
+  } else {
+    resetSearch();
+  }
+};
+function cycleSearch(i) {
+  if(cycle > -1) {
+    var o = document.getElementById('caption'+matches[cycle]);
+    o.getElementsByTagName("em")[0].className = "";
+  }
+  var c = document.getElementById('caption'+matches[i]);
+  c.getElementsByTagName("em")[0].className = "current";
+  match.innerHTML = (i+1) + " of " + matches.length;
+  transcript.scrollTop = c.offsetTop - transcript.offsetTop - 40;
+  cycle = i;
+};
+function resetSearch() {
+  if(matches.length) {
+    for(var i=0; i<captions.length; i++) {
+      document.getElementById('caption'+i).innerHTML = captions[i].text;
+    }
+  }
+  query = "";
+  matches = [];
+  match.innerHTML = "0 of 0";
+  cycle = -1;
+  transcript.scrollTop = 0;
+};
+</script>
+<script type="text/javascript">
+  function setVersion() {
+    if (typeof jwplayer === 'undefined') {
+      setTimeout(setVersion, 100);
+      return;
+    }
+
+    if (jwplayer && jwplayer().id) {
+      jwplayer().on('ready', function() {
+        document.getElementById('demo-player-version').innerHTML = jwplayer.version.split('+')[0];
+      });
+    }
+  }
+
+  setVersion();
+</script>
+  </body>
+</html>
+
+  </div>
+</div>
+
+<!--Start Common Site Footer-->
+<footer class="global-site-footer">
+  <div class="global-site-footer-container">
+    <div class="product-links-row">
+      <div class="product-link-block" >
+        <a href="//www.jwplayer.com">
+          <div class="product">JW Player</div>
+          <div class="description">Browse our products, company, resources, and pricing</div>
+        </a>
+      </div>
+      <div class="product-link-block" >
+        <a href="//dashboard.jwplayer.com">
+          <div class="product">Dashboard</div>
+          <div class="description">Content, players, analytics, and account management</div>
+        </a>
+      </div>
+      <div class="product-link-block" >
+        <a href="//developer.jwplayer.com">
+          <div class="product">Developer</div>
+          <div class="description">Join the community, demos, references, dev guides, and tools.</div>
+        </a>
+      </div>
+      <div class="product-link-block" >
+        <a href="//support.jwplayer.com">
+          <div class="product">Support</div>
+          <div class="description">Search the articles, ask the community, or give feedback</div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-base-row">
+    <div class="site-footer-copyright"></div>
+    <div class="footer-links">
+      <a href="//www.jwplayer.com/careers/">Careers</a>
+      <a href="//www.jwplayer.com/tos/">Terms of Service</a>
+      <a href="//www.jwplayer.com/privacy/">Privacy Policy</a>
+      <a href="//www.jwplayer.com/dmca/">DMCA</a>
+      <a href="//www.jwplayer.com/privacy/#ad-choices">Ad Choices</a>
+    </div>
+  </div>
+</footer>
+<!--End Common Site Footer-->
+
+
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    
+    <script src="/js/developer.min.js?v=ZonZSATa"></script>
+    
+
+		
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.7.1/showdown.min.js"></script>
+  </body>
+</html>
+
